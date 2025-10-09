@@ -172,15 +172,6 @@ class StorageManager:
             table_name="Chunks",
             topk=topk,
             topn=topn,
-            columns_to_select=[
-                "text",
-                "uri",
-                "fileName",
-                "private",
-                "updatedAt",
-                "documentKey",
-                "extractedTimestamp",
-            ],
         )
         return rows
 
