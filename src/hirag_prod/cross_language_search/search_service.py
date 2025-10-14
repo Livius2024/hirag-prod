@@ -1,5 +1,4 @@
 import re
-import time
 from typing import Any, AsyncGenerator, Dict, List, Optional, Tuple, Union
 
 import numpy as np
@@ -269,18 +268,6 @@ async def cross_language_search(
             str_list_dict_to_embed: Dict[str, List[str]] = await prepare_text_to_embed(
                 processed_chunk_list
             )
-
-            matched_sentence_list_to_embed, matched_sentence_index_list_dict_batch = (
-                await precise_search_by_search_sentence_list(
-                    processed_chunk_list,
-                    search_sentence_list_original,
-                    search_sentence_list,
-                )
-            )
-            if len(matched_sentence_list_to_embed) > 0:
-                str_list_dict_to_embed["matched_sentence"] = (
-                    matched_sentence_list_to_embed
-                )
 
             str_embedding_np_array_dict: Dict[str, List[np.ndarray]] = (
                 await create_embeddings_batch(str_list_dict_to_embed)
