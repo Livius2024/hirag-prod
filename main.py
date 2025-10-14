@@ -187,7 +187,22 @@ def get_test(id: str):
         ]
         return document_paths, content_type, document_metas, query
 
-    elif id == "png" or id == "9":
+    elif id == "formula_md" or id == "9":
+        document_path = f"oss://graxy-dev/ofnil/tmp/user/2e9946d0-eb85-4508-b499-feda899d0314/292854a2-b0a2-4bf3-95cd-4e9bccb8bf80/test-math.md"
+        filename = "test-math.md"
+        content_type = "text/markdown"
+        document_meta = {
+            "type": "md",
+            "fileName": filename,
+            "uri": document_path,
+            "private": False,
+            "createdBy": "formula_test",
+            "updatedBy": "formula_test",
+        }
+        query = "如何理解线性运算的封闭性？"
+        return document_path, content_type, document_meta, query
+
+    elif id == "png" or id == "10":
         document_path = f"oss://graxy-dev/ofnil/tmp/user/2e9946d0-eb85-4508-b499-feda899d0314/aliyun-截图.png"
         content_type = "multimodal/image"
         document_meta = {
