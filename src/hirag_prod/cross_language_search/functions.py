@@ -54,7 +54,12 @@ The final result need to be **a JSON object with the following structure**:
         timeout=get_llm_config().timeout,
     )
 
-    synonym_set.update(process_search_response.synonym_list)
+    for synonym in process_search_response.synonym_list:
+        synonym_set.add(normalize_text(synonym))
+    process_search_response.translation_list = [
+        normalize_text(translation)
+        for translation in process_search_response.translation_list
+    ]
     try:
         synonym_set.remove(search)
     except KeyError:
